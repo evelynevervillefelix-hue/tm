@@ -1,0 +1,94 @@
+import { useState } from 'react'
+import { Car, TrendingUp, DollarSign } from 'lucide-react'
+
+interface Vehicle {
+  MR: string
+  Marque: string
+  Modèle: string
+  Année: string
+  NIV: string
+  Coût: number
+  PrixVente?: number
+  Statut: string
+}
+
+export default function Dashboard() {
+  const [vehicles] = useState<Vehicle[]>([
+    { MR: 'MR001', Marque: 'MAZDA', Modèle: '3', Année: '2007', NIV: '703028', Coût: 1500, PrixVente: 3773.42, Statut: 'En stock' },
+    { MR: 'MR002', Marque: 'CIVIC', Modèle: '', Année: '2010', NIV: '006441', Coût: 1400, PrixVente: 5808.72, Statut: 'Vendu' },
+    { MR: 'MR003', Marque: 'YARIS', Modèle: '', Année: '2010', NIV: '323157', Coût: 800, PrixVente: 1761.90, Statut: 'Vendu' }
+  ])
+
+  const enStock = vehicles.filter(v => v.Statut === 'En stock').length
+  const vendus = vehicles.filter(v => v.Statut === 'Vendu').length
+  const profitTotal = vehicles.reduce((sum, v) => sum + (v.PrixVente || 0) - v.Coût, 0)
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">Tableau de Bord</h1>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">Total Véhicules</p>
+                <p className="text-2xl font-bold">{vehicles.length}</p>
+              </div>
+              <Car className="h-8 w-8 text-blue-600" />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">En Stock</p>
+                <p className="text-2xl font-bold text-green-600">{enStock}</p>
+              </div>
+              <Car className="h-8 w-8 text-green-600" />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">Vendus</p>
+                <p className="text-2xl font-bold text-red-600">{vendus}</p>
+              </div>
+              <TrendingUp className="h-8 w-8 text-red-600" />
+            </div>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-600">Profit Total</p>
+                <p className={`text-2xl font-bold ${profitTotal >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                  ${profitTotal.toLocaleString()}
+                </p>
+              </div>
+              <DollarSign className="h-8 w-8 text-blue-600" />
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow p-6">
+          <h2 className="text-xl font-bold mb-4">Dernières Ventes</h2>
+          <div className="space-y-3">
+            {vehicles.filter(v => v.Statut === 'Vendu').map(vehicle => (
+              <div key={vehicle.MR} className="flex justify-between items-center p-3 border rounded">
+                <div>
+                  <p className="font-medium">{vehicle.Marque} {vehicle.Modèle}</p>
+                  <p className="text-sm text-gray-600">{vehicle.MR}</p>
+                </div>
+                <span className="text-green-600 font-medium">
+                  ${(vehicle.PrixVente || 0).toLocaleString()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

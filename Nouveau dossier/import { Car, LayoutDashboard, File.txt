@@ -1,0 +1,48 @@
+import { Car, LayoutDashboard, FileText, ArrowRight } from 'lucide-react'
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Gérez votre stock et vos dépenses sans effort
+          </h1>
+          <p className="text-xl text-gray-600 mb-8">
+            Visualisez votre stock, suivez vos ventes, centralisez les factures
+          </p>
+          
+          <div className="flex justify-center gap-4 mb-12">
+            <a href="/dashboard" className="bg-blue-600 text-white px-6 py-3 rounded-lg">
+              Ouvrir le Dashboard
+            </a>
+            <a href="/vehicles" className="bg-gray-800 text-white px-6 py-3 rounded-lg">
+              Gérer les Véhicules
+            </a>
+            <a href="/invoices" className="bg-white text-gray-900 px-6 py-3 rounded-lg border">
+              Gérer les Factures
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white p-6 rounded-xl shadow">
+              <Car className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-bold mb-2">Stock centralisé</h3>
+              <p className="text-gray-600">Ajoutez, modifiez et filtrez vos véhicules</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow">
+              <FileText className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-bold mb-2">Factures maîtrisées</h3>
+              <p className="text-gray-600">Enregistrez vos dépenses et imprimez des rapports</p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow">
+              <LayoutDashboard className="h-8 w-8 text-blue-600 mx-auto mb-3" />
+              <h3 className="font-bold mb-2">Vue claire</h3>
+              <p className="text-gray-600">Dashboard prêt à l'emploi avec indicateurs clés</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

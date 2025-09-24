@@ -1,0 +1,5 @@
+src/
+├── components/     # Composants réutilisables
+├── pages/         # Pages de l'application
+├── utils/         # Utilitaires
+└── App.tsx        # Composant principal

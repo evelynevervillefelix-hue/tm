@@ -1,0 +1,25 @@
+# Stock MR - Gestion de Véhicules
+
+Application complète de gestion de stock et factures pour véhicules.
+
+## Fonctionnalités
+
+- ✅ Gestion complète des véhicules
+- ✅ Facturation et dépenses
+- ✅ Tableau de bord administrateur
+- ✅ Version mobile optimisée
+- ✅ Impression des rapports
+
+## Déploiement
+
+### Méthode Vercel (recommandée)
+
+1. Créez un compte sur [vercel.com](https://vercel.com)
+2. Importez ce dépôt GitHub
+3. Cliquez sur "Deploy"
+
+### Méthode locale
+
+```bash
+npm install
+npm run dev
