@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock MR - Déploiement</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 50px; }
+        .success { background: #d4edda; color: #155724; padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="success">
+        <h1>✅ DÉPLOIEMENT RÉUSSI !</h1>
+        <p>Ton application Stock MR est maintenant en ligne !</p>
+        <p><strong>Lien :</strong> https://tm-pi-three.vercel.app</p>
+    </div>
+</body>
+</html>
